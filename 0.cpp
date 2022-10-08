@@ -3,32 +3,10 @@
 
 using namespace std;
 
-int solution(int n)
+vector<int> solution(int money)
 {
-    int answer = 0;
-    for (int i = 2; i < n; i++)
-    {
-        if (n % i == 0)
-        {
-            n /= i;
-            if (n % i == 0)
-            {
-                n /= i;
-                i--;
-            }
-            else
-            {
-                break;
-            }
-        }
-    }
-    if (n == 1)
-    {
-        answer = 1;
-    }
-    else
-    {
-        answer = 2;
-    }
+    vector<int> answer;
+    answer.push_back(money / 5500);
+    answer.push_back(money % 5500);
     return answer;
 }
