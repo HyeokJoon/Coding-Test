@@ -1,16 +1,14 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-int solution(vector<int> sides)
+int solution(string str1, string str2)
 {
-    int answer = 0;
-    sort(sides.begin(), sides.end());
-    if (sides[2] < sides[1] + sides[0])
+    int answer = 2;
+    if (str1.find(str2) != string::npos)
+    {
         answer = 1;
-    else
-        answer = 2;
+    }
     return answer;
 }
