@@ -3,12 +3,18 @@
 
 using namespace std;
 
-int solution(string str1, string str2)
+int solution(vector<string> s1, vector<string> s2)
 {
-    int answer = 2;
-    if (str1.find(str2) != string::npos)
+    int answer = 0;
+    for (const auto v : s1)
     {
-        answer = 1;
+        for (const auto v2 : s2)
+        {
+            if (v == v2)
+            {
+                answer++;
+            }
+        }
     }
     return answer;
 }
