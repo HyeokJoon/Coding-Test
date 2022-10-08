@@ -1,20 +1,34 @@
 #include <string>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
 int solution(int n)
 {
-    int j = n;
     int answer = 0;
-    for (j; j <= 0; j = j / 10)
+    for (int i = 2; i < n; i++)
     {
-        answer += (j % 10);
+        if (n % i == 0)
+        {
+            n /= i;
+            if (n % i == 0)
+            {
+                n /= i;
+                i--;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    if (n == 1)
+    {
+        answer = 1;
+    }
+    else
+    {
+        answer = 2;
     }
     return answer;
-}
-int main()
-{
-    cout << solution(122);
 }
