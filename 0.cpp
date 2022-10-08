@@ -1,20 +1,13 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-int solution(vector<string> s1, vector<string> s2)
+vector<int> solution(vector<int> num_list)
 {
-    int answer = 0;
-    for (const auto v : s1)
-    {
-        for (const auto v2 : s2)
-        {
-            if (v == v2)
-            {
-                answer++;
-            }
-        }
-    }
-    return answer;
+    vector<int> answer;
+    reverse(num_list.begin(), num_list.end());
+
+    return num_list;
 }
