@@ -1,18 +1,8 @@
+// 세균이 t시간마다 2배만큼 증식
 #include <string>
 #include <vector>
-
 using namespace std;
-
-vector<int> solution(int n)
+int solution(int n, int t)
 {
-    vector<int> answer;
-    answer.push_back(1);
-    for (int i = 2; i <= n; i++)
-    {
-        if (n % i == 0)
-        {
-            answer.push_back(i);
-        }
-    }
-    return answer;
+    return n << t;
 }
