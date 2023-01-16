@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cstring>
+#include <vector>
 
 using namespace std;
 
@@ -8,15 +8,16 @@ int main()
 {
     int N;
     cin >> N;
-    string *a = new string[N];
+    vector<int> arr;
+    int a;
     for (int i = 0; i < N; i++)
     {
-        cin >> a[i];
+        cin >> a;
+        arr.push_back(a);
     }
-    sort(a->begin(), a->end());
+    sort(arr.begin(), arr.end());
     for (int i = 0; i < N; i++)
     {
-        cout << a[i] << endl;
+        cout << arr[i] << "\n";
     }
-    delete[] a;
 }
