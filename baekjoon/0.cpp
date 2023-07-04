@@ -1,14 +1,21 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <stdio.h>
 
-vector<int> solution(vector<int> numbers, int num1, int num2)
+int main()
 {
-    vector<int> answer;
-    for (num1; num1 <= num2; num1++)
+    printf("<영화 예매 프로그램>\n\n");
+    printf("\t\t 영화제목\n");
+    printf("------------------------------------------------\n");
+    char c = 'A';
+    for (int i = 1; i < 10; i++)
     {
-        answer.push_back(numbers[num1]);
+        printf("|");
+        for (int j = 1; j < 10; j++)
+        {
+            printf(" %c%d |", c, j);
+        }
+        c++;
+        printf("\n");
     }
-    return answer;
+    printf("\n");
+    printf("------------------------------------------------\n");
 }

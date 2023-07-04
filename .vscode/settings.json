@@ -25,6 +25,11 @@
         "optional": "cpp",
         "variant": "cpp",
         "tuple": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "functional": "cpp",
+        "map": "cpp",
+        "atomic": "cpp",
+        "ios": "cpp",
+        "system_error": "cpp"
     }
 }

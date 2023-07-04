@@ -21,7 +21,7 @@ vector<Path> paths;
 int Dist[10001];
 Path path[12];
 
-void init()
+void init(void)
 {
     scanf("%d %d", &N, &D);
     int s, e, d;
