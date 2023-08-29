@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "programers_cote_62f4d506"
+        },
+        {
             "name": "clang++ - Build and debug active file",
             "type": "lldb",
             "request": "launch",
@@ -15,7 +22,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang++ 활성 파일 빌드" //tasks의 label과 같아야함
+            "preLaunchTask": "C/C++: clang++ 활성 파일 빌드"
         }
     ]
 }

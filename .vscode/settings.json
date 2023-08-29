@@ -30,6 +30,7 @@
         "map": "cpp",
         "atomic": "cpp",
         "ios": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "ratio": "cpp"
     }
 }
