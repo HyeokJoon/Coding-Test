@@ -2,9 +2,9 @@
 using namespace std;
 
 int N;
-int pay[16][2];
-int visited[16];
-int dic[16];
+int pay[1500001][2];
+int visited[1500001];
+int dic[1500001];
 
 int solution(int cur)
 {
