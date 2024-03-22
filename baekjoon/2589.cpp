@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <queue>
+#include <memory.h>
 using namespace std;
 
 int n, m;
@@ -8,10 +9,35 @@ int map[51][51];
 int visited[51][51];
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, -1, 0, 1};
-pair<int, int> startPoint;
-pair<int, int> endPoint;
-queue<pair<int, int>> q;
-int maxLen;
+int mx;
+
+//어느 한 지점에서 부터 시작하는 bfs
+void bfs(int y, int x)
+{
+    memset(visited, 0, sizeof(visited));
+    visited[y][x] = 1;
+    queue<pair<int, int>> q;
+    q.push({y, x});
+    while (q.size())
+    {
+        tie(y, x) = q.front();
+        q.pop();
+        for (int i = 0; i < 4; i++)
+        {
+            int ny = y + dy[i];
+            int nx = x + dx[i];
+            if (ny < 0 || ny >= n || nx < 0 || nx >= m)
+                continue;
+            if (visited[ny][nx])
+                continue;
+            if (map[ny][nx] == 'W')
+                continue;
+            visited[ny][nx] = visited[y][x] + 1;
+            q.push({ny, nx});
+            mx = max(mx, visited[ny][nx]);
+        }
+    }
+}
 
 void init()
 {
@@ -26,27 +52,6 @@ void init()
         }
     }
 }
-void solution()
-{
-    while (!q.empty())
-    {
-        int cur_x = q.front().first;
-        int cur_y = q.front().second;
-        q.pop();
-
-        for (int i = 0; i < 4; i++)
-        {
-            int nx = cur_x + dx[i];
-            int ny = cur_y + dy[i];
-            if (nx < 0 || ny < 0 || nx >= n || ny >= m)
-                continue;
-            if (visited[nx][ny] || map[nx][ny] == 'W')
-                continue;
-            visited[nx][ny] = visited[cur_x][cur_y] + 1;
-            q.push({nx, ny});
-        }
-    }
-}
 
 int main()
 {
@@ -55,8 +60,9 @@ int main()
     {
         for (int j = 0; j < m; j++)
         {
-            q.push({i, j});
-            solution();
+            if (map[i][j] == 'L')
+                bfs(i, j);
         }
     }
+    cout << mx - 1 << "\n";
 }
