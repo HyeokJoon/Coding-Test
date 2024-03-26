@@ -4,13 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "Launch Solution",
-            "request": "launch",
-            "mainClass": "Solution",
-            "projectName": "programers_cote_62f4d506"
-        },
+        // {
+        //     "type": "java",
+        //     "name": "Launch Solution",
+        //     "request": "launch",
+        //     "mainClass": "Solution",
+        //     "projectName": "programers_cote_62f4d506"
+        // },
         {
             "name": "clang++ - Build and debug active file",
             "type": "lldb",
