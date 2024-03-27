@@ -70,7 +70,8 @@ while cnt > 0:
     cnt -= 1
     if t == "[" or t == "]" or t == "(" or t == ")":
         flag = False
-    ret += t
+    else:
+        ret += t
 
 if flag:
     print(ret)
