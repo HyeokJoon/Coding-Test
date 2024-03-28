@@ -17,6 +17,7 @@ def binarySearch(left, right, l_t, r_t):
     while left <= right:
         mid = (left + right) // 2
         tmp = m_list[mid]
+
         if tmp >= l_t and tmp <= r_t:
             return True
         if tmp > r_t:
