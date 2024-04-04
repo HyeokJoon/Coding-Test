@@ -1,5 +1,4 @@
 
-
 def bfs(i, j):  # 방문하지 않고 인접한 모든 점을 방문하고 방문횟수를 반환
     queue = []
     queue.append((i, j))
