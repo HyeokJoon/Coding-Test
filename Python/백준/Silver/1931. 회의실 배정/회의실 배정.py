@@ -1,3 +1,7 @@
+import sys
+def input(): return sys.stdin.readline().rstrip()
+
+
 n = int(input())
 meetings = [tuple(map(int, input().split())) for _ in range(n)]
 
