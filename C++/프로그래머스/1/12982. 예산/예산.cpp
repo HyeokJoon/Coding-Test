@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
-#include <iostream>
 #include <algorithm>
 
 using namespace std;
@@ -12,20 +11,16 @@ int solution(vector<int> d, int budget) {
     
     sort(d.begin(), d.end());
 
-    bool loop = true;
-    while(loop){
-        for (int i=0; i<d.size(); i++){
-            // cout << "request: " << d[i] <<", budget: "<<budget << endl;
-            if(budget >= d[i]){
-                budget -= d[i];
-                answer++;
-                continue;
-            }
-            else{
-                break;
-            }
+    for (int i=0; i<d.size(); i++){
+        // cout << "request: " << d[i] <<", budget: "<<budget << endl;
+        if(budget >= d[i]){
+            budget -= d[i];
+            answer++;
+            continue;
         }
-        loop = false;
+        else{
+            break;
+        }
     }
     
     return answer;
