@@ -8,11 +8,12 @@ int solution(int n)
 {
     dp[1] = 1;
     dp[0] = 1;
-    if (dp[n])
+
+    for (int i = 2; i <= n; i++)
     {
-        return dp[n];
+        dp[i] = (dp[i - 1] + dp[i - 2]) % 10007;
     }
-    dp[n] = (solution(n - 1) + solution(n - 2))%10007;
+
     return dp[n];
 }
 
