@@ -21,19 +21,19 @@ void solution()
         q.pop();
         if (x == K)
             break;
-        if (x - 1 >= 0 && visited[x - 1] == 0)
+        if (x - 1 >= 0 && !visited[x - 1])
         {
             visited[x - 1] = 1;
             q.push(x - 1);
             cnt[x - 1] = cnt[x] + 1;
         }
-        if (x + 1 <= 100000 && visited[x + 1] == 0)
+        if (x + 1 <= 100000 && !visited[x + 1])
         {
             visited[x + 1] = 1;
             q.push(x + 1);
             cnt[x + 1] = cnt[x] + 1;
         }
-        if (2 * x <= 100000 && visited[2 * x] == 0)
+        if (2 * x <= 100000 && !visited[2 * x])
         {
             visited[2 * x] = 1;
             q.push(2 * x);

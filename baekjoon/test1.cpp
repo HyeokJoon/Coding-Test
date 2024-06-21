@@ -1,62 +1,62 @@
+#include <string>
+#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <queue>
+
 using namespace std;
 
-int t, s, e;
-int sx, sy, ex, ey;
+int dx[4] = {-1,0,1,0};
+int dy[4] = {0,-1,0,1};
+int visited[501][501];
 
-void init()
-{
-    cin >> s >> e;
-    int i = 1, sum = 0;
-    bool sFlag = true, eFlag = true;
-    while (1)
-    {
-        sum += i;
-        if (sFlag && s <= sum)
-        {
-            // cout << "Ssum : " << sum << endl;
-            sFlag = false;
-            sx = i;
-            sy = i - (sum - s);
-            // cout << sx << " , " << sy << endl;
-        }
-        if (eFlag && e <= sum)
-        {
-            // cout << "Esum : " << sum << endl;
-            eFlag = false;
-            ex = i;
-            ey = i - (sum - e);
 
-            // cout << ex << " , " << ey << endl;
-        }
-        if (eFlag == false && sFlag == false)
-            break;
-        i++;
+void bfs(int x, int y, vector<vector<int>>* land){
+    queue<pair<int,int>> q;
+    q.push({x,y});
+    int cnt = 0;
+    int min_col = 500;
+    int max_col = 0;
+    while(!q.empty()){
+        int curx = q.front().first;
+        int cury = q.front().first;
+        for(int i=0; i<4; i++){
+            int nx = curx+dx[i];
+            int ny = cury+dy[i];
+
+            if (nx<0 || ny<0 || nx > land->size() || ny > land[0].size())
+                continue;
+            if (visited[nx][ny])
+                continue;
+            visited[nx][ny]=1;
+            cnt++;
+            min_col = min(min_col, ny);
+            max_col = max(max_col, ny);
+        }  
+    }
+    for (int i=min_col ; i< max_col; i++){
+        cols[i] += cnt;
     }
 }
-int solution()
-{
-    int dx = ex - sx;
-    int dy = ey - sy;
-    // 부호가 같을때
-    if (dx * dy > 0)
-    {
-        return max(abs(dx), abs(dy));
+
+int solution(vector<vector<int>> land) {
+    int answer = 0;
+    vector<int> cols(0,land[0].size());
+    
+    for (int i=0; i<land.size(); i++){
+        for (int j=0; j<land[0].size(); j++){
+            // cout << land[i][j];
+            if (visited[i][j]==0){
+                visited[i][j] = 1;
+                bfs(i,j,&land);
+            }
+        }
     }
-    //부호가 다를 때
-    else
-    {
-        return abs(dx) + abs(dy);
-    }
+    
+    return answer;
 }
-int main()
-{
-    cin >> t;
-    for (int i = 1; i <= t; i++)
-    {
-        init();
-        int result = solution();
-        printf("#%d %d\n", i, result);
-    }
+
+
+int main(){
+    vector<vector<int>> land;
+
 }

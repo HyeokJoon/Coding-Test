@@ -2,22 +2,22 @@
 #include <set>
 using namespace std;
 
-int main()
-{
-    int s1, s2, a;
+int s1, s2, a;
+set<int> S1;
+
+int main(){
     cin >> s1 >> s2;
-    set<int> S1;
     int cnt = 0;
-    for (int i = 0; i < s1; i++)
-    {
+    for(int i=0; i<s1; i++){
         cin >> a;
         S1.insert(a);
     }
-    for (int i = 0; i < s2; i++)
-    {
+
+    for(int i=0; i<s2; i++){
         cin >> a;
-        if (S1.find(a) != S1.end())
+        if(S1.find(a) != S1.end())
             cnt++;
     }
-    cout << s1 + s2 - cnt - cnt;
+
+    cout << s1+s2-2*cnt;
 }
